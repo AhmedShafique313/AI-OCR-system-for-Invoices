@@ -51,12 +51,12 @@ def process_invoices(invoice_images):
 
 # List of invoice image files
 invoice_files = [
-    "/content/invoice_1.jpg",
-    "/content/Invoices (1)_page-0006.jpg",
-    "/content/Invoices (1)_page-0004.jpg",
-    "/content/Invoices (1)_page-0003.jpg",
-    "/content/Invoices (1)_page-0002.jpg",
-    "/content/Invoices (1)_page-0001.jpg"
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_1.jpg",
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_2.jpg",
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_3.jpg",
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_4.jpg",
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_5.jpg",
+    r"C:\Users\Infinity AI Systems\Documents\Projects\AI OCR System for Invoices\image\invoice_6.jpg"
 ]
 
 # Extract invoice details dynamically
