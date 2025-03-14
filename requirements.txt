@@ -1,4 +1,4 @@
 opencv-python
 pytesseract
-tesseract-ocr
 tesseract
+pandas
