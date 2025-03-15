@@ -2,3 +2,5 @@ opencv-python
 pytesseract
 tesseract
 pandas
+google.generativeai
+python-dotenv
