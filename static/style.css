@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
@@ -7,4 +7,45 @@ body {
 
 h1 {
     color: #333;
+} */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.message {
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.success {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    margin-top: 15px;
 }
