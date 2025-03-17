@@ -3,47 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Upload</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        button {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h2>Upload Your PNG File</h2>
-        <input type="file" id="fileInput">
-        <button class="upload-btn">Upload</button>
-        <br>
-        <button class="download-btn" style="background: green; color: white;">Download CSV</button>
-    </div>
-
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Invoice OCR System</title>
     <link rel="stylesheet" href="static\styles.css">
 </head>
@@ -61,4 +20,89 @@
     </div>
 </body>
 </html>
+ -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Invoice OCR System</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Invoice OCR System</h1>
+        <p>Please upload a PNG invoice file for text extraction.</p>
+
+        <input type="file" id="fileInput" accept=".png">
+        <button class="upload-btn" onclick="uploadFile()">Upload</button>
+
+        <p id="processingText" class="processing-text" style="display: none;">Processing...</p>
+
+        <p id="successMessage" class="success-text" style="display: none;"></p>
+        
+        <button id="downloadBtn" class="download-btn" style="display: none;" onclick="downloadCSV()">Download CSV</button>
+    </div>
+
+    <script>
+        function uploadFile() {
+            let fileInput = document.getElementById("fileInput");
+            if (fileInput.files.length === 0) {
+                alert("Please select a PNG file to upload.");
+                return;
+            }
+
+            let file = fileInput.files[0];
+            let formData = new FormData();
+            formData.append("file", file);
+
+            document.getElementById("processingText").style.display = "block";
+            document.getElementById("successMessage").style.display = "none";
+            document.getElementById("downloadBtn").style.display = "none";
+
+            fetch("/upload", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                    document.getElementById("processingText").style.display = "none";
+                } else {
+                    processInvoice(data.file_path);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function processInvoice(filePath) {
+            fetch("/process", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ file_path: filePath })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("processingText").style.display = "none";
+
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById("successMessage").innerText = "Processing complete! CSV file is ready.";
+                    document.getElementById("successMessage").style.display = "block";
+                    document.getElementById("downloadBtn").style.display = "block";
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function downloadCSV() {
+            window.location.href = "/download";
+        }
+    </script>
+</body>
+</html>

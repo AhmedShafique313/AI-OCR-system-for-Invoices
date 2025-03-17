@@ -5,3 +5,5 @@ pandas
 google.generativeai
 python-dotenv
 Flask
+easyocr
+langchain_google_genai
