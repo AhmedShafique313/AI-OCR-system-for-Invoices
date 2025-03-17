@@ -1,12 +1,10 @@
-import json, os
-import re
+import json, os, re
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 load_dotenv()
 
 gemini_api_key = os.environ.get('GEMINI_API_KEY')
 
-# Initialize Gemini API
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
     google_api_key=gemini_api_key
