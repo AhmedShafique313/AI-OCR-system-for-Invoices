@@ -9,7 +9,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import cv2
 import numpy as np
 
-# Initialize EasyOCR reader
 reader = easyocr.Reader(['en'])
 
 # Initialize session state for df_store if not already set

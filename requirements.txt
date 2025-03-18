@@ -7,3 +7,4 @@ python-dotenv
 Flask
 easyocr
 langchain_google_genai
+streamlit
