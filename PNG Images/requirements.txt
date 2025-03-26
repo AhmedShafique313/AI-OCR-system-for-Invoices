@@ -8,3 +8,4 @@ streamlit
 json5
 pillow
 numpy
+paddleocr
