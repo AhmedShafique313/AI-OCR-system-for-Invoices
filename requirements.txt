@@ -9,3 +9,4 @@ json5
 pillow
 numpy
 paddleocr
+paddlepaddle
