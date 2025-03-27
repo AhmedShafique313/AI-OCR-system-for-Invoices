@@ -344,7 +344,6 @@ def llm_response(extracted_text):
     - UNIT PRICE (It is the price of one unit, It can be replaced by its synonym and its not case sensitive)
     - EXTD PRICE or Total (It can be replaced by its synonym and its not case sensitive)
     Return the data in **valid JSON format**.
-    Ensure that the response contains only the extracted data as a JSON object.
     
     OCR Text:
     {extracted_text}
